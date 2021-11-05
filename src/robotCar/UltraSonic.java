@@ -4,9 +4,11 @@ public class UltraSonic extends Sensors {
 	private static boolean sensorInitialized = false;
 	private static float measuredDistance = 0f;
 	
-	public static void initializeSensor()
+	protected void initializeSensor()
 	{
 		sensorInitialized = true;
+		System.out.println("Ultra Sonic Initialized");
+
 	}
 	
 	public static float testDistance()

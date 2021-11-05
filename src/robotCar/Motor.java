@@ -6,9 +6,11 @@ public class Motor extends TransmissionComponent {
 	private static float driveImpulseLevel = 0f;
 	private static boolean transmissionInitialized = false;
 	
-	public static boolean initializeTransmission()
+	public void initializeTransmission()
 	{
-		return transmissionInitialized = true;
+		transmissionInitialized = true;
+		System.out.println("Motor Initialized");
+
 	}
 	
 	private static void driveImpulse()

@@ -7,9 +7,11 @@ public class Steering extends TransmissionComponent {
 	private float steerLevel = 0;
 	private static boolean transmissionInitialized = false;
 	
-	public static boolean initializeTransmission()
+	protected void initializeTransmission()
 	{
-		return transmissionInitialized = true;
+		transmissionInitialized = true;
+		System.out.println("Steering Initialized");
+
 	}
 	
 	public static void steer()
