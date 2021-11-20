@@ -22,13 +22,13 @@ public class AutomaticState implements RobotState {
 	@Override
 	public void AvoidObstacle() throws InterruptedException {
 		// TODO Auto-generated method stub
-		System.out.println("Avoiding Obstacle");
+		System.out.println("Stopping");
 		Thread.sleep(1000);
-		System.out.println("1");
+		System.out.println("Reversing");
 		Thread.sleep(1000);
-		System.out.println("2");
+		System.out.println("Turning Left");
 		Thread.sleep(1000);
-		System.out.println("3");
+		System.out.println("...");
 		Drive();
 		
 	}

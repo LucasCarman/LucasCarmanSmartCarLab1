@@ -22,6 +22,7 @@ public class LineTrackingState implements RobotState{
 	public void AvoidObstacle() throws InterruptedException {
 		// TODO Auto-generated method stub
 		System.out.println("Centering on line");
+		Thread.sleep(1000);
 		Drive();
 		
 	}
