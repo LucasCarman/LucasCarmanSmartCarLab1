@@ -2,6 +2,8 @@ package robotCar;
 
 import java.util.Scanner;
 
+import edu.fiu.sysdesign.SelfCheckUtils;
+
 public class Execution {
 	
 	private static boolean componentCheck = false;
@@ -25,6 +27,8 @@ public class Execution {
 		motor.initializeTransmission();
 		
 		testComponents();
+		
+		runSelfCheck();
 		
 		
 		Scanner scanner = new Scanner(System.in);
@@ -65,4 +69,18 @@ public class Execution {
 		
 	}
 
+	public boolean selfCheck() {
+		// TODO Auto-generated method stub
+		return SelfCheckUtils.randomCheck(0.1);
+	}
+	
+	public String getComponentName() {
+		// TODO Auto-generated method stub
+		return name;
+	}
+
+	public boolean runSelfCheck() {
+		// TODO Auto-generated method stub
+		return SelfCheckUtils.basicSelfCheckRunner(this);
+	}
 }
