@@ -2,7 +2,10 @@ package robotCar;
 
 import java.util.*;
 
-public class RobotCar {
+import edu.fiu.sysdesign.SelfCheckCapable;
+import edu.fiu.sysdesign.SelfCheckUtils;
+
+public class RobotCar implements SelfCheckCapable{
 	private static int sizeX;
 	private static int sizeY;
 	private static int sizeZ;
@@ -14,6 +17,7 @@ public class RobotCar {
 	
 	public RobotCar(int choice) throws InterruptedException
 	{
+				
 		this.modeSelection(choice);
 	}
 
@@ -25,17 +29,12 @@ public class RobotCar {
 			{
 				robotState = new AutomaticState();
 				RobotCar.Drive();
-				//System.out.println();
-				//System.out.println("Automatic Mode Chosen");
-				//break;
 			}
 			else if (choice == 2)
 			{
 				robotState = new LineTrackingState();
 				RobotCar.AvoidObstacle();
-				//System.out.println();
-				//System.out.println("Line Tracking Mode Chosen");
-				//break;
+
 			}
 			else
 			{
@@ -55,5 +54,25 @@ public class RobotCar {
 	public static void AvoidObstacle() throws InterruptedException
 	{
 		robotState.AvoidObstacle();
+	}
+
+
+	@Override
+	public String getComponentName() {
+		// TODO Auto-generated method stub
+		return "Robot Car";
+	}
+
+
+	@Override
+	public boolean selfCheck() {
+		// TODO Auto-generated method stub
+		return SelfCheckUtils.randomCheck(0.1);
+	}
+
+
+	@Override
+	public boolean runSelfCheck() {
+		return SelfCheckUtils.checkComponents(this);
 	}
 }

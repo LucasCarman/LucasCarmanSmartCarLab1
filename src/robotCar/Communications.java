@@ -1,8 +1,15 @@
 package robotCar;
 
-public class Communications {
+import edu.fiu.sysdesign.SelfCheckCapable;
+import edu.fiu.sysdesign.SelfCheckUtils;
+
+public class Communications implements SelfCheckCapable {
 	private static String communicationDevice = "Bluetooth";
 	private static boolean communicationInitialized = false;
+	
+	public Communications() {
+		runSelfCheck();
+	}
 	
 	public void initializeCommunication()
 	{
@@ -20,6 +27,24 @@ public class Communications {
 	public static void sendComms()
 	{
 		
+	}
+
+	@Override
+	public String getComponentName() {
+		// TODO Auto-generated method stub
+		return "Communication Module";
+	}
+
+	@Override
+	public boolean selfCheck() {
+		// TODO Auto-generated method stub
+		return SelfCheckUtils.randomCheck(0.1);
+	}
+
+	@Override
+	public boolean runSelfCheck() {
+		// TODO Auto-generated method stub
+		return SelfCheckUtils.basicSelfCheckRunner(this);
 	}
 
 }

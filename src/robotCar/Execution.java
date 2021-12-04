@@ -1,36 +1,33 @@
 package robotCar;
 
+
 import java.util.Scanner;
 
+import edu.fiu.sysdesign.SelfCheckCapable;
 import edu.fiu.sysdesign.SelfCheckUtils;
 
-public class Execution {
+
+public class Execution implements SelfCheckCapable {
 	
 	private static boolean componentCheck = false;
+	RobotCar robotcar;
 
 	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
 		
 		LineTrack lineTrack = new LineTrack();
-		lineTrack.initializeSensor();
 		
 		Camera camera = new Camera();
-		camera.initializeSensor();
 		
 		UltraSonic ultraSonic = new UltraSonic();
-		ultraSonic.initializeSensor();
 		
 		Steering steering = new Steering();
-		steering.initializeTransmission();
 		
 		Motor motor = new Motor();
-		motor.initializeTransmission();
 		
-		testComponents();
+		Communications communications = new Communications();
 		
-		runSelfCheck();
-		
-		
+
 		Scanner scanner = new Scanner(System.in);
 		System.out.println();
 		System.out.println("Choose a mode:");
@@ -43,16 +40,10 @@ public class Execution {
 		if (choice == 1)
 		{
 			robotCar = new RobotCar(1);
-			//System.out.println();
-			//System.out.println("Automatic Mode Chosen");
-			//break;
 		}
 		else if (choice == 2)
 		{
 			robotCar = new RobotCar(2);
-			//System.out.println();
-			//System.out.println("Line Tracking Mode Chosen");
-			//break;
 		}
 		else
 		{
@@ -62,21 +53,14 @@ public class Execution {
 
 	}
 
-	private static void testComponents() {
-		// TODO Auto-generated method stub
-		componentCheck = true;
-		System.out.println("Components Working");
-		
-	}
-
 	public boolean selfCheck() {
 		// TODO Auto-generated method stub
 		return SelfCheckUtils.randomCheck(0.1);
 	}
 	
 	public String getComponentName() {
-		// TODO Auto-generated method stub
-		return name;
+
+		return null;
 	}
 
 	public boolean runSelfCheck() {

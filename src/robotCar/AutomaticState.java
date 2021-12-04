@@ -2,7 +2,7 @@ package robotCar;
 
 public class AutomaticState implements RobotState {
 
-	private int distanceArray [] = {3, 5, 6, 4, 1, 5, 2, 8, 1, 9, 4 ,2, 1};
+	private int distanceArray [] = {3, 5, 6, 4, 1};
 
 	@Override
 	public void Drive() throws InterruptedException {

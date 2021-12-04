@@ -1,8 +1,17 @@
 package robotCar;
 
-public class LineTrack extends Sensors {
+import edu.fiu.sysdesign.SelfCheckUtils;
+import edu.fiu.sysdesign.SelfCheckCapable;
+
+
+public class LineTrack extends Sensors implements SelfCheckCapable {
 	private static boolean sensorInitialized = false;
 	private static boolean lineTracked = false;
+	
+	public LineTrack()
+	{
+		runSelfCheck();
+	};
 	
 	public static void trackLine()
 	{
@@ -14,6 +23,24 @@ public class LineTrack extends Sensors {
 	{
 		sensorInitialized = true;
 		System.out.println("Line Tracker Initialized");
+	}
+
+	@Override
+	public String getComponentName() {
+		// TODO Auto-generated method stub
+		return "LineTrack";
+	}
+
+	@Override
+	public boolean selfCheck() {
+		// TODO Auto-generated method stub
+		return SelfCheckUtils.randomCheck(0.1);
+	}
+
+	@Override
+	public boolean runSelfCheck() {
+		// TODO Auto-generated method stub
+		return SelfCheckUtils.basicSelfCheckRunner(this);
 	}
 	
 
